@@ -1,0 +1,151 @@
+/* General styling */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 1em;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #f3f2ef;
+}
+
+main {
+  max-width: 70vw;
+}
+
+/* Header-elements */
+
+.page-header,
+.profile-container,
+.profile {
+  padding: 0 1em;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 0 3px gray;
+  background-color: white;
+}
+
+.page-header,
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+header + .profile-container {
+  margin-top: 1em;
+}
+
+.profile-container {
+  padding-bottom: 1em;
+}
+
+.user__interaction {
+  color: grey;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Arranging the profile cards */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-gap: 2em;
+}
+
+/* Styling of single profile card*/
+
+.profile {
+  padding: 0;
+}
+
+/* Styling of header-area of single profile card with background-img, profile-img and delete-button */
+
+.profile__intro {
+  height: 8em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__intro--background-img {
+  max-width: 100%;
+  border-radius: 5px 5px 0 0;
+  height: 4em;
+}
+
+.profile__intro--picture {
+  border-radius: 50%;
+  width: 7em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile__intro--background-empty {
+  height: 4em;
+}
+
+.profile__intro--delete {
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  width: 2em;
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+  color: white;
+  background-color: rgba(105, 105, 105, 40%);
+}
+
+/* Profil-information with name, position, mutual contacts and connect-button */
+
+.profile__info {
+  padding: 1em;
+}
+
+.profile__info--name,
+.profile__info--position,
+.profile__info--connections,
+.profile__info--connect {
+  text-align: center;
+}
+
+.profile__info--name {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.profile__info--position {
+  font-size: 1rem;
+  color: gray;
+}
+
+.profile__info--connections {
+  font-size: 0.7rem;
+  color: gray;
+}
+
+.profile__info--connect {
+  padding: 0.2em 2em;
+  border: 1px solid #2566c2;
+  border-radius: 15px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2566c2;
+  background-color: white;
+}

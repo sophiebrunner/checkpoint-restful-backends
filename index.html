@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sophie Brunner" />
+    <meta
+      name="description"
+      content="Rebuild of the suggested contacts widget of LinkedIn using an API."
+    />
+    <title>LinkedIn</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <p class="user__information">No pending invitations</p>
+        <p class="user__interaction">Manage</p>
+      </header>
+      <article class="profile-container">
+        <header class="profile-header">
+          <p class="user__information">
+            People you may know in Greater Nuremberg Metropolitan Area
+          </p>
+          <p class="user__interaction">See all</p>
+        </header>
+        <div class="grid-container">
+          <article class="profile">
+            <header class="profile__intro">
+              <img
+                src="https://picsum.photos/100"
+                alt=""
+                class="profile__intro--background-img"
+              />
+              <img
+                src="https://picsum.photos/100"
+                alt=""
+                class="profile__intro--picture"
+              />
+              <div class="profile__intro--background-empty"></div>
+              <button class="profile__intro--delete">X</button>
+            </header>
+            <section class="profile__info">
+              <h2 class="profile__info--name">Jane Doe</h2>
+              <p class="profile__info--position">
+                Junior Frontend Developer at PRISMA
+              </p>
+              <p class="profile__info--connections">Based on your profile</p>
+              <button class="profile__info--connect">Connect</button>
+            </section>
+          </article>
+        </div>
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
