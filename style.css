@@ -21,7 +21,7 @@ main {
 /* Header-elements */
 
 .page-header,
-.profile-container,
+.profiles-container,
 .profile {
   padding: 0 1em;
   border: 1px solid lightgray;
@@ -37,11 +37,11 @@ main {
   gap: 1em;
 }
 
-header + .profile-container {
+header + .profiles-container {
   margin-top: 1em;
 }
 
-.profile-container {
+.profiles-container {
   padding-bottom: 1em;
 }
 
@@ -54,15 +54,19 @@ header + .profile-container {
 /* Arranging the profile cards */
 
 .grid-container {
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-gap: 2em;
+  padding-left: 0;
 }
 
 /* Styling of single profile card*/
 
 .profile {
   padding: 0;
+  list-style-type: none;
+  height: 35vh;
 }
 
 /* Styling of header-area of single profile card with background-img, profile-img and delete-button */
@@ -92,6 +96,7 @@ header + .profile-container {
 
 .profile__intro--background-empty {
   height: 4em;
+  border: none;
 }
 
 .profile__intro--delete {
