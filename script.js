@@ -1,4 +1,4 @@
-// Grabbing DOM-elements
+// Store DOM-elements in variables
 const pendingInvitations = document.querySelector("#pending-invitations");
 const cardsGrid = document.querySelector("#cards-grid");
 
@@ -25,13 +25,11 @@ function loadDatafromApi(count, start) {
 }
 
 // Create ID for single profile-card to use it in the delete-function
-
 function createId(profileName) {
   return profileName.trim().replaceAll(" ", "").toLowerCase();
 }
 
 // Create DOM-elements with API
-
 function renderProfiles(start) {
   for (i = start; i < profiles.length; i++) {
     // Store single profile in a variable
@@ -52,7 +50,7 @@ function renderProfiles(start) {
     profilePicture.src = profile.picture;
     profilePicture.classList.add("profile__intro--picture");
 
-    const backgroundEmpty = document.createElement("img");
+    const backgroundEmpty = document.createElement("div");
     backgroundEmpty.classList.add("profile__intro--background-empty");
 
     const btnDelete = document.createElement("button");
@@ -73,7 +71,8 @@ function renderProfiles(start) {
 
     const connections = document.createElement("p");
     connections.classList.add("profile__info--connections");
-    connections.innerText = profile.mutualConnections + " mutual connections";
+    connections.innerText =
+      " " + profile.mutualConnections + " mutual connections";
 
     const btnConnect = document.createElement("button");
     btnConnect.classList.add("profile__info--connect");

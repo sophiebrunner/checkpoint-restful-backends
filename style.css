@@ -15,7 +15,7 @@ body {
 }
 
 main {
-  max-width: 70vw;
+  width: 100ch;
 }
 
 /* Header-elements */
@@ -54,10 +54,10 @@ header + .profiles-container {
 /* Arranging the profile cards */
 
 .grid-container {
-  height: 100vh;
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
-  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1em;
   padding-left: 0;
 }
 
@@ -65,14 +65,14 @@ header + .profiles-container {
 
 .profile {
   padding: 0;
+  max-height: 20em;
   list-style-type: none;
-  height: 35vh;
 }
 
 /* Styling of header-area of single profile card with background-img, profile-img and delete-button */
 
 .profile__intro {
-  height: 8em;
+  height: 10em;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -81,7 +81,8 @@ header + .profiles-container {
 .profile__intro--background-img {
   max-width: 100%;
   border-radius: 5px 5px 0 0;
-  height: 4em;
+  height: 5em;
+  background-image: url("https://www.linkedin-makeover.com/wp-content/uploads/2021/02/Background-73-1024x256-1.png");
 }
 
 .profile__intro--picture {
@@ -95,7 +96,7 @@ header + .profiles-container {
 }
 
 .profile__intro--background-empty {
-  height: 4em;
+  height: 5em;
   border: none;
 }
 
@@ -107,6 +108,8 @@ header + .profiles-container {
   position: absolute;
   top: 0.2em;
   right: 0.2em;
+  cursor: pointer;
+  font-weight: 700;
   color: white;
   background-color: rgba(105, 105, 105, 40%);
 }
@@ -114,7 +117,8 @@ header + .profiles-container {
 /* Profil-information with name, position, mutual contacts and connect-button */
 
 .profile__info {
-  padding: 1em;
+  padding: 0;
+  padding-bottom: 1em;
 }
 
 .profile__info--name,
@@ -126,17 +130,22 @@ header + .profiles-container {
 
 .profile__info--name {
   margin-top: 0;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .profile__info--position {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: gray;
 }
 
 .profile__info--connections {
   font-size: 0.7rem;
   color: gray;
+}
+
+.profile__info--connections::before {
+  content: "\26AD";
+  font-size: 1rem;
 }
 
 .profile__info--connect {
@@ -149,8 +158,17 @@ header + .profiles-container {
   left: 50%;
   transform: translate(-50%, 0);
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #2566c2;
+  background-color: white;
+}
+
+.profile__info--connect:hover {
+  background-color: aliceblue;
+  outline: 1.5px solid #2566c2;
+}
+
+.profile__info--connect:active {
   background-color: white;
 }
