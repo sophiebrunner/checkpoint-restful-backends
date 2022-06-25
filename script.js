@@ -28,6 +28,7 @@ function loadDatafromApi(count, start) {
 function createId(profileName) {
   return profileName.trim().replaceAll(" ", "").toLowerCase();
 }
+// Trim: delete spaces at beginning and end; replaceAll: delete all spaces whithin the string; toLowerCase: important for casing
 
 // Create DOM-elements with API
 function renderProfiles(start) {
@@ -95,12 +96,7 @@ function renderProfiles(start) {
 
 let numberOfInvitations = loadData() || 0;
 storeData(numberOfInvitations);
-
-if (numberOfInvitations === 0) {
-  pendingInvitations.innerText = "No pending invitations";
-} else {
-  pendingInvitations.innerText = numberOfInvitations + " pending invitations";
-}
+renderInvitations();
 
 function connectWithProfile(e) {
   const btnConnect = e.target;
@@ -108,22 +104,30 @@ function connectWithProfile(e) {
   if (btnConnect.innerText === "Connect") {
     btnConnect.innerText = "Pending";
     numberOfInvitations++;
-    pendingInvitations.innerHTML = numberOfInvitations + " pending invitations";
+    renderInvitations();
     storeData(numberOfInvitations);
   } else {
     btnConnect.innerText = "Connect";
     numberOfInvitations--;
-    pendingInvitations.innerText = numberOfInvitations + " pending invitations";
+    renderInvitations();
     storeData(numberOfInvitations);
   }
+}
+
+function loadData() {
+  return localStorage.getItem("numberOfInvitations");
 }
 
 function storeData(numberOfInvitations) {
   localStorage.setItem("numberOfInvitations", numberOfInvitations);
 }
 
-function loadData() {
-  return localStorage.getItem("numberOfInvitations");
+function renderInvitations() {
+  if (numberOfInvitations === 0) {
+    pendingInvitations.innerText = "No pending invitations";
+  } else {
+    pendingInvitations.innerText = numberOfInvitations + " pending invitations";
+  }
 }
 
 // Delete contact and load a new one
@@ -139,4 +143,3 @@ function deleteProfile(e) {
 }
 
 loadDatafromApi(8, 0);
-// renderInvitations();

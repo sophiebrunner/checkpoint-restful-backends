@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --clr-highlight: #2566c2;
+}
+
 body {
   padding-top: 1em;
   margin: 0;
@@ -31,7 +35,7 @@ main {
 }
 
 .page-header,
-.profile-header {
+.profiles-header {
   display: flex;
   justify-content: space-between;
   gap: 1em;
@@ -51,14 +55,21 @@ header + .profiles-container {
   cursor: pointer;
 }
 
+.user__interaction:hover {
+  color: var(--clr-highlight);
+}
+
+.user__interaction:active {
+  color: darkblue;
+}
+
 /* Arranging the profile cards */
 
 .grid-container {
+  padding-left: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  grid-template-rows: repeat(2, 1fr);
   gap: 1em;
-  padding-left: 0;
 }
 
 /* Styling of single profile card*/
@@ -79,25 +90,29 @@ header + .profiles-container {
 }
 
 .profile__intro--background-img {
-  max-width: 100%;
   border-radius: 5px 5px 0 0;
+  max-width: 100%;
   height: 5em;
+  object-fit: cover;
+  object-position: center;
   background-image: url("https://www.linkedin-makeover.com/wp-content/uploads/2021/02/Background-73-1024x256-1.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .profile__intro--picture {
   border-radius: 50%;
+  margin-right: -50%;
   width: 7em;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-right: -50%;
   transform: translate(-50%, -50%);
 }
 
+/* This is a dummy-element for layout purpose */
 .profile__intro--background-empty {
   height: 5em;
-  border: none;
 }
 
 .profile__intro--delete {
@@ -112,13 +127,22 @@ header + .profiles-container {
   font-weight: 700;
   color: white;
   background-color: rgba(105, 105, 105, 40%);
+  transition: 0.1s ease-in-out;
+}
+
+.profile__intro--delete:hover,
+.profile__intro--delete:focus-within {
+  transform: scale(1.1);
+}
+
+.profile__intro--delete:active {
+  color: var(--clr-highlight);
 }
 
 /* Profil-information with name, position, mutual contacts and connect-button */
 
 .profile__info {
-  padding: 0;
-  padding-bottom: 1em;
+  padding: 0 0 1em 0;
 }
 
 .profile__info--name,
@@ -160,15 +184,15 @@ header + .profiles-container {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  color: #2566c2;
+  color: var(--clr-highlight);
   background-color: white;
 }
 
 .profile__info--connect:hover {
   background-color: aliceblue;
-  outline: 1.5px solid #2566c2;
+  outline: 1.5px solid var(--clr-highlight);
 }
 
 .profile__info--connect:active {
-  background-color: white;
+  background-color: rgba(37, 102, 194, 20%);
 }
