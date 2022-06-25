@@ -123,6 +123,8 @@ function storeData(numberOfInvitations) {
 }
 
 function renderInvitations() {
+  numberOfInvitations = Number(numberOfInvitations);
+
   if (numberOfInvitations === 0) {
     pendingInvitations.innerText = "No pending invitations";
   } else {
