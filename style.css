@@ -1,0 +1,198 @@
+/* General styling */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: sans-serif;
+  --clr-highlight: #2566c2;
+}
+
+body {
+  padding-top: 1em;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #f3f2ef;
+}
+
+main {
+  width: 100ch;
+}
+
+/* Header-elements */
+
+.page-header,
+.profiles-container,
+.profile {
+  padding: 0 1em;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 0 3px gray;
+  background-color: white;
+}
+
+.page-header,
+.profiles-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+header + .profiles-container {
+  margin-top: 1em;
+}
+
+.profiles-container {
+  padding-bottom: 1em;
+}
+
+.user__interaction {
+  border: none;
+  color: grey;
+  background-color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user__interaction:hover {
+  color: var(--clr-highlight);
+}
+
+.user__interaction:active {
+  color: darkblue;
+}
+
+/* Arranging the profile cards */
+
+.grid-container {
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1em;
+}
+
+/* Styling of single profile card*/
+
+.profile {
+  padding: 0;
+  max-height: 20em;
+  list-style-type: none;
+}
+
+/* Styling of header-area of single profile card with background-img, profile-img and delete-button */
+
+.profile__intro {
+  height: 10em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__intro--background-img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: 5em;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile__intro--picture {
+  border-radius: 50%;
+  margin-right: -50%;
+  width: 7em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* This is a dummy-element for layout purpose */
+.profile__intro--background-empty {
+  height: 5em;
+}
+
+.profile__intro--delete {
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  width: 2em;
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(105, 105, 105, 40%);
+  transition: 0.1s ease-in-out;
+}
+
+.profile__intro--delete:hover,
+.profile__intro--delete:focus-within {
+  transform: scale(1.1);
+}
+
+.profile__intro--delete:active {
+  color: var(--clr-highlight);
+}
+
+/* Profil-information with name, position, mutual contacts and connect-button */
+
+.profile__info {
+  padding: 0 0 1em 0;
+}
+
+.profile__info--name,
+.profile__info--position,
+.profile__info--connections,
+.profile__info--connect {
+  text-align: center;
+}
+
+.profile__info--name {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.profile__info--position {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.profile__info--connections {
+  font-size: 0.7rem;
+  color: gray;
+}
+
+.profile__info--connections::before {
+  content: "\26AD";
+  font-size: 1rem;
+}
+
+.profile__info--connect {
+  padding: 0.2em 2em;
+  border: 1px solid #2566c2;
+  border-radius: 15px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-highlight);
+  background-color: white;
+}
+
+.profile__info--connect:hover {
+  background-color: aliceblue;
+  outline: 1.5px solid var(--clr-highlight);
+}
+
+.profile__info--connect:active {
+  background-color: rgba(37, 102, 194, 20%);
+}

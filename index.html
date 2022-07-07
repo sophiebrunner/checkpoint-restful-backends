@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sophie Brunner" />
+    <meta
+      name="description"
+      content="Rebuild of the suggested contacts widget of LinkedIn using a dummy-API."
+    />
+    <title>LinkedIn</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <p class="user__information" id="pending-invitations"></p>
+        <button class="user__interaction">Manage</button>
+      </header>
+      <article class="profiles-container">
+        <header class="profiles-header">
+          <p class="user__information">
+            People you may know in Greater Nuremberg Metropolitan Area
+          </p>
+          <button class="user__interaction">See all</button>
+        </header>
+        <ul class="grid-container" id="cards-grid"></ul>
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
