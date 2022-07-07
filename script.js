@@ -8,19 +8,16 @@ const profiles = [];
 // Load profile-data from API
 function loadDatafromApi(count, start) {
   fetch("https://dummy-apis.netlify.app/api/contact-suggestions?count=" + count)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        console.warn("404 - resource not found");
-      }
-    })
+    .then((response) => response.json())
     .then((data) => {
       data.forEach((obj) => {
         obj.id = createId(obj.name.first + obj.name.last);
         profiles.push(obj);
       });
       renderProfiles(start);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
     });
 }
 
@@ -32,7 +29,7 @@ function createId(profileName) {
 
 // Create DOM-elements with API
 function renderProfiles(start) {
-  for (i = start; i < profiles.length; i++) {
+  for (let i = start; i < profiles.length; i++) {
     // Store single profile in a variable
     const profile = profiles[i];
 
@@ -44,7 +41,9 @@ function renderProfiles(start) {
     profileHero.classList.add("profile__intro");
 
     const backgroundImg = document.createElement("img");
-    backgroundImg.src = profile.backgroundImage;
+    backgroundImg.src =
+      profile.backgroundImage ||
+      "https://www.linkedin-makeover.com/wp-content/uploads/2021/02/Background-73-1024x256-1.png";
     backgroundImg.classList.add("profile__intro--background-img");
 
     const profilePicture = document.createElement("img");
@@ -57,6 +56,7 @@ function renderProfiles(start) {
     const btnDelete = document.createElement("button");
     btnDelete.innerText = "X";
     btnDelete.classList.add("profile__intro--delete");
+    btnDelete.dataset.id = profile.id;
     btnDelete.addEventListener("click", deleteProfile);
 
     const profileInfo = document.createElement("div");
@@ -136,7 +136,7 @@ function renderInvitations() {
 
 function deleteProfile(e) {
   const profileCard = e.target.parentElement.parentElement;
-  const id = e.target.id;
+  const id = e.target.dataset.id;
   const index = profiles.findIndex((profile) => profile.id === id);
 
   profiles.splice(index, 1);

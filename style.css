@@ -7,6 +7,7 @@
 }
 
 :root {
+  font-family: sans-serif;
   --clr-highlight: #2566c2;
 }
 
@@ -50,7 +51,9 @@ header + .profiles-container {
 }
 
 .user__interaction {
+  border: none;
   color: grey;
+  background-color: white;
   font-weight: 600;
   cursor: pointer;
 }
@@ -95,9 +98,6 @@ header + .profiles-container {
   height: 5em;
   object-fit: cover;
   object-position: center;
-  background-image: url("https://www.linkedin-makeover.com/wp-content/uploads/2021/02/Background-73-1024x256-1.png");
-  background-size: cover;
-  background-position: center;
 }
 
 .profile__intro--picture {
